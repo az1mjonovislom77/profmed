@@ -6,13 +6,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = config('SECRET_KEY')
 
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = config('DEBUG', default=True, cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='', cast=Csv())
+
+AUTH_USER_MODEL = 'user.User'
 
 ENVIRONMENT = config('ENVIRONMENT', default='local')
 
 LOCAL_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -155,6 +158,15 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+JAZZMIN_SETTINGS = {
+    "site_title": "ProfMed Admin",
+    "site_header": "ProfMed Boshqaruv Paneli",
+    "site_brand": "ProfMed",
+    "welcome_sign": "Xush kelibsiz, ProfMed Admin!",
+    "copyright": "ProfMed Group © 2025",
+    "show_ui_builder": True,
+}
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = 'media/'
