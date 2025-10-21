@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Location, SocialMedia, HomepageStats, FooterStats
+from .models import Location, SocialMedia, HomepageStats, FooterStats, PhoneNumber, Email, WorkTime
 
 
 @admin.register(Location)
@@ -21,3 +21,18 @@ class HomepageStatsAdmin(admin.ModelAdmin):
 @admin.register(FooterStats)
 class FooterStatsAdmin(admin.ModelAdmin):
     list_display = ('id', 'doctors', 'experience', 'awards', 'successfully_operations')
+
+
+@admin.register(PhoneNumber)
+class PhoneNumberAdmin(admin.ModelAdmin):
+    list_display = ('id', 'number', 'number2')
+
+
+@admin.register(Email)
+class EmailAdmin(admin.ModelAdmin):
+    list_display = ('id', 'email', 'email2')
+
+
+@admin.register(WorkTime)
+class WorkTimeAdmin(admin.ModelAdmin):
+    list_display = ('id', 'work_time', 'work_time2')

@@ -7,7 +7,9 @@ from category.utils import check_image_size
 class Doctor(models.Model):
     full_name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='doctor/', validators=[
-        FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png', 'svg', 'webp']), check_image_size], blank=True,
+        FileExtensionValidator(
+            allowed_extensions=['jpg', 'jpeg', 'png', 'svg', 'webp', 'JPG', 'JPEG', 'PNG', 'SVG', 'WEBP']),
+        check_image_size], blank=True,
                               null=True)
     profession = models.CharField(max_length=100)
     experience = models.IntegerField()

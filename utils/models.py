@@ -27,7 +27,9 @@ class FooterStats(models.Model):
 class SocialMedia(models.Model):
     name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='social_media/', validators=[
-        FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png', 'svg', 'webp']), check_image_size], blank=True,
+        FileExtensionValidator(
+            allowed_extensions=['jpg', 'jpeg', 'png', 'svg', 'webp', 'JPG', 'JPEG', 'PNG', 'SVG', 'WEBP']),
+        check_image_size], blank=True,
                               null=True)
     link = models.URLField()
 
