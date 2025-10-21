@@ -183,5 +183,7 @@ LANGUAGES = (
 
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
 
+STATIC_ROOT = 'staticfiles'
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = 'media/'
