@@ -16,6 +16,7 @@ ENVIRONMENT = config('ENVIRONMENT', default='local')
 
 LOCAL_APPS = [
     'jazzmin',
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -23,6 +24,10 @@ LOCAL_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'user.apps.UserConfig',
+    'category.apps.CategoryConfig',
+    'utils.apps.UtilsConfig',
+    'doctor.apps.DoctorConfig',
+    'waitlist.apps.WaitlistConfig',
 ]
 
 THIRD_PARTY_APPS = [
@@ -167,6 +172,16 @@ JAZZMIN_SETTINGS = {
     "copyright": "ProfMed Group © 2025",
     "show_ui_builder": True,
 }
+
+LANGUAGES = (
+    ('uz', 'Uzbek'),
+    ('en', 'English'),
+    ('ru', 'Russian'),
+    ('zh-hans', 'Chinese'),
+    ('ar', 'Arabic')
+)
+
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = 'media/'
