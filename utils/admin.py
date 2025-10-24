@@ -25,14 +25,14 @@ class FooterStatsAdmin(admin.ModelAdmin):
 
 @admin.register(PhoneNumber)
 class PhoneNumberAdmin(admin.ModelAdmin):
-    list_display = ('id', 'number', 'number2')
+    list_display = ('id', 'number')
 
 
 @admin.register(Email)
 class EmailAdmin(admin.ModelAdmin):
-    list_display = ('id', 'email', 'email2')
+    list_display = ('id', 'email')
 
 
 @admin.register(WorkTime)
 class WorkTimeAdmin(admin.ModelAdmin):
-    list_display = ('id', 'work_time', 'work_time2')
+    list_display = ('id', 'work_time')

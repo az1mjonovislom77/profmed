@@ -53,26 +53,21 @@ class Location(models.Model):
 
 
 class PhoneNumber(models.Model):
-    number = models.CharField(max_length=100)
-    number2 = models.CharField(max_length=100, null=True, blank=True)
+    number = models.JSONField(max_length=100)
 
     def __str__(self):
         return self.number
 
 
 class Email(models.Model):
-    email = models.EmailField()
-    email2 = models.EmailField(null=True, blank=True)
+    email = models.JSONField()
 
     def __str__(self):
         return self.email
 
 
 class WorkTime(models.Model):
-    work_time = models.TimeField()
-    work_time2 = models.TimeField(null=True, blank=True)
+    work_time = models.CharField()
 
     def __str__(self):
-        if self.work_time2:
-            return f"{self.work_time} - {self.work_time2}"
-        return str(self.work_time)
+        return self.work_time
