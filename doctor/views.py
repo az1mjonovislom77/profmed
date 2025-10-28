@@ -18,16 +18,15 @@ class DoctorAPIView(APIView):
         except Doctor.DoesNotExist:
             return Response({"error": "Doctorlar topilmadi"}, status=status.HTTP_404_NOT_FOUND)
 
-        serializer = DoctorSerializer(doctor, many=True)
+        serializer = DoctorSerializer(doctor, many=True, context={'request': request})
         return Response(serializer.data)
 
     def post(self, request):
-        serializer = DoctorSerializer(data=request.data)
+        serializer = DoctorSerializer(data=request.data, context={'request': request})
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
 
 # @extend_schema(tags=['DoctorDetail'])
 # class DoctorDetailAPIView(APIView):

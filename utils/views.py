@@ -54,11 +54,11 @@ class SocialMediaAPIView(APIView):
             socialmedia = SocialMedia.objects.all()
         except SocialMedia.DoesNotExist:
             return Response({"error": "SocialMedia topilmadi"}, status=status.HTTP_404_NOT_FOUND)
-        serializer = self.serializer_class(socialmedia, many=True)
+        serializer = self.serializer_class(socialmedia, many=True, context={'request': request})
         return Response(serializer.data)
 
     def post(self, request):
-        serializer = self.serializer_class(data=request.data)
+        serializer = self.serializer_class(data=request.data, context={'request': request})
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
