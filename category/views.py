@@ -17,11 +17,11 @@ class CategoryAPIView(APIView):
         except Category.DoesNotExist:
             return Response({"error": "Category topilmadi"}, status=status.HTTP_404_NOT_FOUND)
 
-        serializer = CategorySerializer(category, many=True)
+        serializer = CategorySerializer(category, many=True, context={'request': request})
         return Response(serializer.data)
 
     def post(self, request):
-        serializer = CategorySerializer(data=request.data)
+        serializer = CategorySerializer(data=request.data, context={'request': request})
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
